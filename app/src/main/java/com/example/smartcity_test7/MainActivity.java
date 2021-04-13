@@ -31,20 +31,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
         sharedPreferences = getSharedPreferences("data",0);
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    String json = KenUtils.Get("http://124.93.196.45:10002/userinfo/rotation/lists?pageNum=1&pageSize=10&type=47");
-//                    Log.i("Ken", "run: "+json);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }).start();
 
-        if (sharedPreferences.getBoolean("guide",true)){
+        if (sharedPreferences.getString("ip","k").equals("k")){
             Intent intent = new Intent(MainActivity.this,GuideActivity.class);
             startActivity(intent);
         }else if (sharedPreferences.getString("token","k").equals("k")){
