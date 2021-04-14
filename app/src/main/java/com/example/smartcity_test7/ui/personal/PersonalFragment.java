@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.smartcity_test7.R;
 import com.example.smartcity_test7.utils.KenUtils;
 
@@ -73,6 +74,7 @@ public class PersonalFragment extends Fragment {
                         @Override
                         public void run() {
                             textView2.setText(nike);
+                            Glide.with(getContext()).load(img).into(imageView);
                         }
                     });
                 } catch (IOException | JSONException e) {

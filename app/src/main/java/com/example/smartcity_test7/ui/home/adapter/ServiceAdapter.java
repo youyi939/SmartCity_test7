@@ -1,5 +1,6 @@
 package com.example.smartcity_test7.ui.home.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.smartcity_test7.R;
+import com.example.smartcity_test7.bus.BusActivity;
+import com.example.smartcity_test7.citySubWay.SubWayActivity;
 import com.example.smartcity_test7.ui.home.pojo.ItemService;
 
 import java.util.List;
@@ -38,6 +41,19 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         }else {
             Glide.with(holder.rootView).load(service.getImgUrl()).into(holder.img_service);
         }
+        holder.img_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (service.getServiceName().equals("城市地铁")){
+                    Intent intent = new Intent(holder.rootView.getContext(), SubWayActivity.class);
+                    holder.rootView.getContext().startActivity(intent);
+                }else if (service.getServiceName().equals("智慧巴士")){
+                    Intent intent = new Intent(holder.rootView.getContext(), BusActivity.class);
+                    holder.rootView.getContext().startActivity(intent);
+                }
+            }
+        });
+
     }
 
     @Override
